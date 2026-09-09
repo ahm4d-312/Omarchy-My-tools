@@ -1,0 +1,37 @@
+{
+  "root": {
+    "label": "My Tools"
+  },
+  "window": {"icon":"󰍹","label":"Window Management"},
+  "audio": {"icon":"","label":"Audio"},
+
+  "audio.bluetooth": {
+    "icon": "󰂯",
+    "label": "Bluetui",
+    "action": "bash -c \"$HOME/My-Scripts/actions/launch-float  bluetui\""
+  },
+
+  "audio.wiremix": {
+    "icon": "󰄙",
+    "label": "Wiremix",
+    "action": "bash -c \"$HOME/My-Scripts/actions/launch-float  wiremix\""
+  },
+
+  "window.Wide-Window": {
+    "icon":"󰁌",
+    "label":"Wide the active window",
+    "action":"bash -c \"$HOME/My-Scripts/actions/set-size-active-window 1330\""
+  },
+
+  "window.Narrow-Window": {
+    "icon":"󰁄",
+    "label":"Narrow the active window",
+    "action":"bash -c \"$HOME/My-Scripts/actions/set-size-active-window 650\""
+  },
+
+  "window.Toggle-Window": {
+    "icon":"󰆍",
+    "label":"Toggle Window",
+    "action":"bash -c \"$HOME/My-Scripts/actions/set-active-to-float\""
+  },
+}

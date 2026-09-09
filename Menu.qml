@@ -47,8 +47,8 @@ Item {
   // JSONC menu definitions. The shell parses both at startup and merges
   // the user file on top of the defaults, so the keybind → IPC → visible
   // path doesn't have to shell out to bash + jq on every open.
-  property string defaultMenuPath: omarchyPath + "/default/omarchy/omarchy-menu.jsonc"
-  property string userMenuPath: Quickshell.env("HOME") + "/.config/omarchy/extensions/omarchy-menu.jsonc"
+  property string defaultMenuPath: omarchyPath + "/.config/omarchy/plugins/My-tools.menu/My-tools.jsonc"
+  property string userMenuPath: Quickshell.env("HOME") + "/.config/omarchy/plugins/My-tools.menu/My-tools.jsonc"
   property var defaultMenuItems: []
   property var userMenuItems: []
   property bool opened: false
@@ -1032,13 +1032,18 @@ Item {
     // frozen at the same moment, so the starting menu also caps how tall the
     // card may grow from there. Closing unfreezes both.
     property int cardTop: -1
-    property int maxRowsHeight: -1
+    // property int maxRowsHeight: -1
     readonly property int centeredTop: Math.max(Style.gapsOut, Math.round((height - root.cardHeight) / 2))
     readonly property int effectiveCardTop: cardTop >= 0 ? cardTop : centeredTop
+    // function freezeCardTop() {
+    //   if (visible && cardTop < 0) {
+    //     cardTop = effectiveCardTop
+    //     maxRowsHeight = root.visibleRowsHeight
+    //   }
+    // }
     function freezeCardTop() {
-      if (visible && cardTop < 0) {
+    if (visible && cardTop < 0) {
         cardTop = effectiveCardTop
-        maxRowsHeight = root.visibleRowsHeight
       }
     }
     onVisibleChanged: if (!visible) { cardTop = -1; maxRowsHeight = -1 }
